@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+<body>
+    <form action="/register" method="POST" onsubmit="return verify(event)">
+        <p>Ingrese los siguientes datos para registrarse</p><br>
+        EMAIL: <input type="email" name="username" id="email" placeholder="Ingrese su email"><br>
+        PASSWORD: <input type="password" name="password" id="password" placeholder="Ingrese su contraseña"><br>
+        CONFIRM PASSWORD: <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme su contraseña"><br>
+        FIRSTNAME: <input type="text" name="firstname" id="firstname" placeholder="Ingrese su nombre"><br>
+        ADDRESS: <input type="text" name="address" id="address" placeholder="Ingrese su direccion"><br>
+        AGE: <input type="number" name="age" id="age"><br>
+        TELEPHONE: <input type="tel" name="telephonenumber" id="telephonenumber"><br>
+        <input type="submit" name="submitRegister" id="submitRegister" class="btn" value="Enviar"><br>   
+    </form>
+    <div class="alert alert-error" style="display: none"></div><br>
+    <button  onclick="location.href='./login'">
+        IR A LOGIN
+    </button>
+    <br>
+</body>
+<script>
+  const phoneInputField = document.querySelector("#telephonenumber");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+    initialCountry: "ar",
+    utilsScript:
+      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
+  const info = document.querySelector(".alert-info");
+  const pass1 = document.getElementById("password")
+  const pass2 = document.getElementById("passwordConfirm")
+  function verify(event) {
+    const phoneNumber = phoneInput.getNumber();
+    const error = document.querySelector(".alert-error");
+    const telephonenumber = document.getElementById("telephonenumber")
+
+    error.style.display = "none";
+    console.log(pass1.value === pass2.value)
+    if (phoneInput.isValidNumber() && pass1.value === pass2.value) {
+      telephonenumber.value = phoneNumber
+      return true
+    } else if (pass1.value != pass2.value) {
+        error.style.display = "";
+        error.innerHTML = `Passwords do not match.`;
+        return false
+      }
+      else {
+        error.style.display = "";
+        error.innerHTML = `Invalid phone number.`;
+        return false
+    }
+  }
+   </script>
+</html>

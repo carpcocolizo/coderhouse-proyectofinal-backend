@@ -1,0 +1,1 @@
+{"level":"error","message":"Hubo un error:CastError: Cast to ObjectId failed for value \"Utiles\" (type string) at path \"_id\" for model \"productos\"","timestamp":"2022-11-10T21:29:12.049Z"}

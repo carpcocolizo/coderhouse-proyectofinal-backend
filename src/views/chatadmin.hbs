@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</head>
+<style>
+        table, th, td {
+          border:1px solid black;
+        }
+        div {
+          display: inline-block;
+        }
+    </style>
+<body>
+    
+    <h1>Centro de Mensajes</h1>
+    <form  id="messageForm">
+        <select id="answer" name="answer" form="messageForm">
+        
+        </select>
+        <input id="messageInput" type="text" placeholder="Ingrese Mensaje"></br>
+        <input type="submit" value="Enviar">
+    </form>
+    
+    <div id="messagesPool"></div>
+    <script src="/script.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.socketadmin.js"></script>
+</body>
+</body>
+</html>

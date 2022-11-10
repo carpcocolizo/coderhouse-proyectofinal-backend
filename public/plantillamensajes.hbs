@@ -1,0 +1,5 @@
+{{#if_equal rol "USER"}}
+<br><div style="display: inline"><b><div style="color: blue;";>{{rol}}</div> <div style="display: inline"><b><div style="color: blue;";>{{email}}</div></b> <div style="color: blue;">{{date}}</div>: <i><div style="color: blue;">{{body}}</div></i> </div><br>
+{{else}}
+<br><div style="display: inline"><b><div style="color: red;";>{{rol}}</div> <div style="display: inline"><b><div style="color: red;";>{{email}}</div></b> <div style="color: red;">{{date}}</div>: <i><div style="color: red;">{{body}}</div></i> </div><br>
+{{/if_equal}}
